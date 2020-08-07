@@ -55,15 +55,7 @@ module.exports = (function(){
 
 
 
-    let getJoinQuery = function(entity){}
-
-    let getSelectQuery = function(entity){}
-
-    let getInsertQuery = function(entity){}
-
-    let getDeleteQuery = function(entity){}
-
-    let getUpdateQuery = function(entity){}
+    
 
     return {
 
