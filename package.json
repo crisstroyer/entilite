@@ -1,7 +1,7 @@
 {
   "name": "entilite",
   "version": "1.0.0",
-  "description": "A light ORM for Nodejs",
+  "description": "A light ORM for Nodejs and API Rest",
   "main": "index.js",
   "scripts": {
     "test": "test"
@@ -14,7 +14,7 @@
     "ORM",
     "Nodejs"
   ],
-  "author": "Cristian Garcia @cristroyer",
+  "author": "Cristian Garcia ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cri5troyer/entilite/issues"
