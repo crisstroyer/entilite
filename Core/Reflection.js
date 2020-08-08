@@ -1,7 +1,7 @@
 /**
  * 
  */
-module.exports = (function(){
+module.exports.Reflection = (function(){
     'use strict'
 
     /**

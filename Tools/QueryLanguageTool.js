@@ -1,7 +1,7 @@
 /**
  * 
  */
-module.exports = (wrapper)=>{
+module.exports.QueryLanguageTool = (wrapper)=>{
     'use strict'
 
     var wrapper = require('./Wrapper');

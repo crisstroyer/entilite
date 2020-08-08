@@ -1,4 +1,4 @@
-module.exports = (function(){
+module.exports.QueryStringTool = (function(){
     /**
      * Cristian Garcia
      * cristiang1026@gmail.com
