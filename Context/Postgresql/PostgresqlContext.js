@@ -1,25 +1,51 @@
 import EntiliteContext from '../../Interface/Context';
 
-class PostgresqlContext extends EntiliteContext {
-    constructor(){
-        super();
+const { EntiliteClient } = require('../../Interface/Client');
 
-    }
-
-    get getJoinQuery(entity){
+/**
+ * 
+ */
+module.export = (()=>{
+    'use strict'
+    getJoinQuery(entity){
         throw "No Implemented"
     }
 
-    get getSelectQuery(entity){}
+    let getSelectQuery = (entity)=>{}
 
-    get getInsertQuery(entity){}
+    let getInsertQuery =(entity)=>{}
 
-    get getDeleteQuery(entity){}
+    let getDeleteQuery = (entity)=>{}
 
-    get getUpdateQuery(entity){}
+    let getUpdateQuery = (entity)=>{}
+
+    let getClient= ()=>{}
+
+    return {
+
+    }
+
+})();
+
+class PostgresqlContext extends EntiliteContext {
+    constructor(config){
+        super();
+    }
+
+    getJoinQuery(entity){
+        throw "No Implemented"
+    }
+
+    getSelectQuery(entity){}
+
+    getInsertQuery(entity){}
+
+    getDeleteQuery(entity){}
+
+    getUpdateQuery(entity){}
 
     get getClient(){}
 
 }
 
-module.exports = PostgresqlContext;
+module.exports.PostgresqlContext = new PostgresqlContext();

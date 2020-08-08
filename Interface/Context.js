@@ -1,21 +1,8 @@
 class EntiliteContext {
-    constructor(){}
-
-    get getJoinQuery(entity){
-        throw "No Implemented"
+    constructor(){
+        //Validate Methods
     }
-
-    get getSelectQuery(entity){}
-
-    get getInsertQuery(entity){}
-
-    get getDeleteQuery(entity){}
-
-    get getUpdateQuery(entity){}
-
-    get getClient(){}
-
 }
 
-module.exports = EntiliteContext;
+module.exports.EntiliteContext = EntiliteContext;
 

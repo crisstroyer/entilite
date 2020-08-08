@@ -1,4 +1,8 @@
+/**
+ * 
+ */
 module.exports = (function(){
+    'use strict'
 
     /**
      * 
@@ -49,6 +53,8 @@ module.exports = (function(){
 
     let validColumnsData = function(){}
 
+    let validParams = function(){}
+
     let isClientValid = function(){}
 
     let isContextValid = function(){}
@@ -60,4 +66,4 @@ module.exports = (function(){
     return {
 
     }
-});
+})();

@@ -1,28 +1,7 @@
 class EntiliteClient {
-
     constructor(){
-        //Validate
+        //Validate Methods
     }
+};
 
-    set escape(param){
-
-    }
-
-    getPoolClient(){
-
-    }
-
-    get query(query, params){}
-
-    get transaction(){
-        return ()=>{
-            begin = ()=>{},
-            commit = ()=>{},
-            rollback = ()=>{}
-        }
-    }
-
-
-}
-
-module.exports = EntiliteClient;
+module.exports.EntiliteClient = EntiliteClient;

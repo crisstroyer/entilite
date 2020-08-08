@@ -1,16 +1,26 @@
-module.exports = (function(){
+/**
+ * 
+ */
+module.exports = (context)=>{
+    'use strict'
 
-    let query = function(contextClient, query, params){}
+    let context = context;
 
-    let select = function(contextClient, entity, columns, conditions, orderby){}
+    let query = function(query, params){}
 
-    let update = function(contextClient, entity, data, conditions){}
+    let select = function(entity, columns, conditions, orderby){}
 
-    let del = function(contextClient, entity, conditions){}
+    let update = function(entity, data, conditions){}
 
-    let insert = function(contextClient, entity, data){}
+    let del = function(entity, conditions){}
+
+    let insert = function(entity, data){}
     
     return {
-
+        Query: query,
+        Select: select,
+        Update: update,
+        Delete: del,
+        Insert: insert
     }
-});
+};
