@@ -1,16 +1,8 @@
 /**
  * 
  */
-module.exports.Wrapper = (context)=>{
+module.exports.Wrapper = function(context){
     'use strict'
-
-    let client; 
-
-    let context = context;
-
-    let setClient = function(client){
-        this.client = client;
-    }
 
     let query = function(query, params, client = undefined){}
 
@@ -23,11 +15,10 @@ module.exports.Wrapper = (context)=>{
     let insert = function(entity, data, client = undefined){}
     
     return {
-        setClient: setClient,
-        Query: query,
-        Select: select,
-        Update: update,
-        Delete: del,
-        Insert: insert
+        query: query,
+        select: select,
+        update: update,
+        delete: del,
+        insert: insert
     }
 };

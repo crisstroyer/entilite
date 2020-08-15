@@ -6,15 +6,17 @@ class Client extends EntiliteClient{
         this.client = client;
     }
 
-    beginTran(){
-        console.log("begin tran");
+    get begintran(){
+
     }
 
-    commitTran(){}
+    get commitTran(){}
 
-    rollbackTran(){}
+    get rollbackTran(){}
 
-    query(query){}
+    set query(query){
+
+    }
 }
 
 /**

@@ -1,18 +1,18 @@
-const { Postgresql: PostgresqlContext } = require('./Context/Postgresql');
-const { Sqlserver: SqlserverContext } = require('./Context/Sqlserver');
+const PostgresqlProvider = require('./Context/Postgresql');
+const SqlserverProvider = require('./Context/Sqlserver');
 
 /**
  * 
  */
-module.exports.postgresql = (config)=>{
+module.exports.PostgresqlContext = function(config){
     'use strict'
-    return new PostgresqlContext(config);
+    return PostgresqlProvider(config);
 };
 
 /**
  * 
  */
-module.exports.sqlserver = (config)=>{
+module.exports.SqlserverContext = (config)=>{
     'use strict'
-    return new SqlserverContext(config);
+    return SqlserverProvider(config);
 };

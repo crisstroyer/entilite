@@ -20,7 +20,7 @@ class Context extends EntiliteContext {
 
     getUpdateQuery(entity){}
 
-    getClient(){
+    get getClient(){
         this.currentClient = new Client(this.config);
         return this.currentClient;
     }
