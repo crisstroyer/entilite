@@ -7,65 +7,62 @@ module.exports.QueryLanguageTool = function(wrapper){
     /**
      * 
      */
-    let list = ()=>{
-        var arg = arguments[0];
+    var list = (arg)=>{
         return wrapper.select(arg.from, arg.where, arg.select, arg.order, arg.client);
     }
 
     /**
      * 
      */
-    let del = ()=>{
-        var arg = arguments[0];
+    var del = (arg)=>{
         return wrapper.delete(arg.from, arg.where, arg.client);
     }
 
     /**
      * 
      */
-    let update = ()=>{
-        var arg = arguments[0];
+    var update = (arg)=>{
         return wrapper.update(arg.from, arg.data, arg.where, arg.client);
     }
 
     /**
      * 
      */
-    let setData = ()=>{
+    var setData = (arg)=>{
         return {
-            where: conditions=>{ arguments[0].where = conditions; return where(arguments[0]) }
+            where: conditions=>{ arg.where = conditions; return where(arg) }
         }
     }
 
     /**
      * 
      */
-    let order = ()=>{
+    var order = (arg)=>{
         return{
-            list: ()=>{ return list(arguments[0]) }
+            list: ()=>{ return list(arg) }
         }
     }
 
     /**
      * 
      */
-    let where = ()=>{
+    var where = (arg)=>{
         return{
-            order: orderby=>{ arguments[0].order = orderby; return order(arguments[0]) },
-            list: ()=>{ return list(arguments[0]) },
-            delete: ()=>{ return del(arguments[0]) },
-            update: ()=>{ return update(arguments[0])}
+            order: orderby=>{ arg.order = orderby; return order(arg) },
+            list: ()=>{ return list(arg) },
+            delete: ()=>{ return del(arg) },
+            update: ()=>{ return update(arg)}
         }
     }
 
     /**
      * 
      */
-    let select = ()=>{
+    var select = (arg)=>{
         return {
-            where: conditions=>{ arguments[0].where = conditions; return where(arguments[0]) },
-            order: orderby=>{ arguments[0].order = orderby; return order(arguments[0]) },
-            list: ()=>{ return list(arguments[0]) }
+            where: conditions=>{ arg.where = conditions; return where(arg) },
+            order: orderby=>{ arg.order = orderby; return order(arg) },
+            list: ()=>{ return list(arg) }
         }
     }
 
@@ -74,7 +71,7 @@ module.exports.QueryLanguageTool = function(wrapper){
      * @param {*} entity 
      * @param {*} client Optional parameter
      */
-    let from = (entity, client = null)=>{
+    var from = (entity, client = null)=>{
         var arg = {
             client: client,
             from: entity,
@@ -97,10 +94,10 @@ module.exports.QueryLanguageTool = function(wrapper){
      * 
      * @param {*} client 
      */
-    let use = (client)=>{
+    var use = (client)=>{
         //Encadenamiento del lenguage de busqueda
         return {
-            from: entity=>{ return choose(entity, client) }
+            from: entity=>{ return from(entity, client) }
         }
     }
 
