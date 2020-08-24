@@ -1,11 +1,17 @@
 const { EntiliteContext } = require('../../Interface/EntiliteContext');
 const { Client } = require('./Client');
+const { Pool } = require('pg');
 
 class Context extends EntiliteContext {
 
     constructor(config){
         super();
-        this.config = config;
+        try{
+            this.config = config;
+            this.pool = new Pool(this.config);
+        }catch(e){
+            throw e;
+        }
     }
 
     getJoinQuery(entity){
@@ -20,9 +26,18 @@ class Context extends EntiliteContext {
 
     getUpdateQuery(entity){}
 
+    /**
+     * 
+     */
     getClient(){
-        this.currentClient = new Client(this.config);
-        return this.currentClient;
+        return new Promise(async (resolve, reject) => {
+            pool.connect()
+                .then(async client => {
+                    resolve(new Client(client));
+                }).catch(e=>{
+                    reject(e);
+                });
+        });
     }
 
 }

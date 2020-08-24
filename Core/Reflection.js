@@ -4,6 +4,12 @@
 module.exports.Reflection = (function(){
     'use strict'
 
+    let getMappedData = function(entity, data){
+        return new Promise((resolve, reject)=>{
+            
+        })
+    }
+
     /**
      * 
      * @param {*} entity Entilite Entity Object

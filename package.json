@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/cri5troyer/entilite/issues"
   },
-  "homepage": "https://github.com/cri5troyer/entilite#readme"
+  "homepage": "https://github.com/cri5troyer/entilite#readme",
+  "dependencies": {
+    "pg-escape": "^0.2.0"
+  }
 }
