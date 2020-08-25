@@ -4,10 +4,43 @@
 module.exports.Reflection = (function(){
     'use strict'
 
+    /**
+     * 
+     * @param {*} entity 
+     * @param {*} data 
+     */
     let getMappedData = function(entity, data){
         return new Promise((resolve, reject)=>{
             
-        })
+        });
+    }
+
+    /**
+     * Metodo encargado de validar si las columnas pertencen a la definicion de la entidad
+     * @param {*} entity 
+     * @param {*} columns 
+     */
+    let validateColumns = function(entity, columns){
+        return new Promise((resolve, reject)=>{
+            
+        });
+    }
+
+    /**
+     * Metodo encargado de validar los tipos de datos asignados a un objecto columna valor.
+     * @param {*} entity 
+     * @param {*} data 
+     */
+    let validateDataTypes = function(entity, data){
+        return new Promise((resolve, reject)=>{
+            
+        });
+    }
+
+    let validateEntity = function(entity){
+        return new Promise((resolve, reject)=>{
+            
+        });
     }
 
     /**

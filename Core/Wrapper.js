@@ -55,15 +55,24 @@ module.exports.Wrapper = function(context){
 
                 //Validar entidad
                 if(!(entity instanceof EntiliteClient)) 
-                    throw new Error('The entity is not a valid class');
+                    
 
-                //Obtener un nuevo cliente de conexion si no se envia uno ya creado
-                if(!client) client = context.getClient();
+                //Validar la entidad
+                Reflection.validateEntity(entity)
+                    .then(entity => {
+
+                    })
+                    .catch(e=>{
+                        reject(e);
+                    });
+
+                
                 //Obtener query
                 let query = context.getSelectQuery(entity, columns, conditions, orderby)
                 //Obtener parametros de las condiciones
                 let params = conditions.map(condition=>condition.value);
-
+                //Obtener un nuevo cliente de conexion si no se envia uno ya creado
+                if(!client) client = context.getClient();
                 //Ejecutar Query
                 client.query(query, params)
                     .then(result=>{
@@ -78,6 +87,13 @@ module.exports.Wrapper = function(context){
         });
     }
 
+    /**
+     * 
+     * @param {*} entity 
+     * @param {*} data 
+     * @param {*} conditions 
+     * @param {*} client 
+     */
     let update = function(entity, data, conditions, client = undefined){
         return new Promise((resolve, reject) => {
             try {
@@ -89,9 +105,12 @@ module.exports.Wrapper = function(context){
                 if(!(entity instanceof EntiliteClient)) 
                     throw new Error('The entity is not a valid class');
 
+                //Validar condicionales
+                
+
                 //Obtener un nuevo cliente de conexion si no se envia uno ya creado
                 if(!client) client = context.getClient();
-
+                
                 //Obtener datos y columnas seteadas
                 Reflection.getMappedData(entity, data)
                     .then((columns, params)=>{
@@ -111,7 +130,7 @@ module.exports.Wrapper = function(context){
                     })
                     .catch(errors=>{
                         let error = errors.map((err, i) => '[' + err + ']').join(',');
-                        reject(e);
+                        reject(error);
                     })
             }catch(e){
                 reject(e);
@@ -119,7 +138,10 @@ module.exports.Wrapper = function(context){
         });
     }
 
-    let del = function(entity, conditions, client = undefined){}
+    let del = function(entity, conditions, client = undefined){
+
+
+    }
 
     let insert = function(entity, data, client = undefined){}
     
